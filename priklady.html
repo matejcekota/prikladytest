@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <title>Obecná rovnice přímky</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelector('form').onsubmit = function (event) {
+
+                event.preventDefault();
+
+                const xa = document.querySelector('#xa').value;
+                const ya = document.querySelector('#ya').value;
+                const xb = document.querySelector('#xb').value;
+                const yb = document.querySelector('#yb').value;
+                const cec = document.querySelector("#cec").value;
+
+                let svx = xb - xa;
+                let svy = yb - ya;
+
+                let nvx = svy*-1
+                let nvy = svx
+
+                let c1 = nvx * xa + nvy * xb;
+                let c = c1 * (-1)
+
+                let cs = cec
+                
+
+                document.querySelector('#sv').innerHTML = `Směrový vektor je B - A = (${svx},${svy}).`;
+                document.querySelector('#nv').innerHTML = `Normálový vektor = (${nvx},${nvy}).`;
+                document.querySelector('#ce').innerHTML = `Obecná rovnice přímky = (${nvx}x  + ${nvy}y + ${cs}).`;
+                document.querySelector("#nc").innerHTML = `Obecná rovnice přímky bez c = (${nvx}x  + ${nvy}y + ${c}) = 0.`;
+                document.querySelector("#xp").innerHTML = `x = ${xa}  + ${nvx}t`;
+                document.querySelector("#yp").innerHTML = `y = ${xb}  + ${nvy}t`;
+            };
+
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Obecná rovnice přímky</h1>
+    <h2>Směrový vektor a Normálový vektor</h2>
+    <form>
+        A [
+        <input autofocus id="xa" placeholder="x bodu A" type="text" size="4" value="1">
+        <input id="ya" placeholder="y bodu A" type="text" size="4" value="5"> ] <br> B [
+        <input id="xb" placeholder="x bodu B" type="text" size="4" value="2">
+        <input id="yb" placeholder="y bodu B" type="text" size="4" value="3"> ]
+        <input type="submit" value="Vypočítat">
+    </form>
+    <p id="sv">Zatím jsem nic nevypočítal.</p>
+    <p id="nv">Zatím jsem nic nevypočítal.</p>
+ 
+    <h2>Obecná rovnice přímky výpočet s hodnotou C</h2>
+    <form>
+         C <input id="cec" placeholder="cecko" type="text" size="8" value="">
+    <p id="ce">Zatím jsem nic nevypočítal.</p>   
+    </form>
+
+    <h2>Když není známa hodnota C</h2>
+    <form>
+    <p id="nc">Zatím jsem nevypočítal</p>
+    </form>
+
+    <h2>Parametrická rovnice přímky</h2>
+    <form>
+    <p id="xp">Zatím jsem nevypočítal </p>
+    <p id="yp">Zatím jsem nevypočítal </p>
+    </form>
+
+    <h2>Směrnicový tvar přímky</h2>
+    <h3>bude dodelane</h3>
+</body>
+
+</html>
